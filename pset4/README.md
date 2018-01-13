@@ -1,5 +1,7 @@
 ### Lecture 4
 
+Program Memory, Malloc(), Structs, Pointers
+
 What does the memory that is allocated to a program look like? And what are its different sections? What does it mean to allocate memory to a program?
 
 **Program Memory**

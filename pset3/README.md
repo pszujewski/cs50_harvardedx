@@ -1,5 +1,7 @@
 ### Lecture 3
 
+Big O Notation, Strings in C, Arrays, Algorithms (searching and sorting)
+
 **Strings in C**
 Strings are saved in memory (in RAM) as a an array of characters. The specific implementation of a string denotes that the final 'box' or 'byte of memory' inside computer that denotes the end of a string in memory is '\0' character. The \0 is is just 8 zero bits. Recall that 8 bits makes 1 byte. That is the end of the string.
 
