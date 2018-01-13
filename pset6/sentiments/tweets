@@ -1,0 +1,40 @@
+#!/usr/bin/env python3
+
+import sys
+import os
+from analyzer import Analyzer
+from termcolor import colored
+
+def main():
+    if len(sys.argv) != 2:
+        sys.exit("Usage: ./tweets twitter_user_name")
+
+    # absolute paths to lists
+    positives = os.path.join(sys.path[0], "positive-words.txt")
+    negatives = os.path.join(sys.path[0], "negative-words.txt")
+
+    # instantiate analyzer
+    analyzer = Analyzer(positives, negatives)
+
+    screen_name = sys.argv[1]
+
+    tweet_tokens = analyzer.getTweetTokens(screen_name)
+
+    for i in range(len(tweet_tokens)):
+        printResultForOneTweet(tweet_tokens[i], screen_name)
+
+    exit(0)
+
+def printResultForOneTweet(tweet, screen_name):
+    score = tweet["score"]
+    message = "{} {} {} {}".format(tweet["classification"], str(score), tweet["tweet_content"], screen_name)
+    if score > 0:
+        print(colored(message, "green"))
+    elif score < 0:
+        print(colored(message, "red"))
+    else:
+        print(colored(message, "yellow"))
+
+if __name__ == "__main__":
+    main()
+

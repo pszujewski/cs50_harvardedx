@@ -1,0 +1,25 @@
+0. Besides 4 × 4 (which are Game of Fifteen’s dimensions), what other dimensions does the framework allow?
+
+fifteen.c defines two constants: DIM_MIN at 3 and DIM_MAX at 9. The user inputs a dimension ('d') at run-time, so
+via a command-line argument. Line 50 of fifteen.c converts the argument from string to integer using the atoi
+library function and then checks to ensure that 'd' is less than or equal to DIM_MAX and greater than or equal
+to DIM_MIN. Other dimensions allowed therefore range from the integers 3 to 9, inclusive.
+
+1. With what sort of data structure is the game’s board represented?
+
+The game's board is represented as a 2-d array. The primary data structure of the game is based on the array.
+
+2. What function is called to greet the player at game’s start?
+
+The function 'greet' is called at the game's start. It's prototype is defined as follows:
+void greet(void);
+Where the return value is defined as void, meaning greet only issues side-effects and has no return value.
+
+3. What functions do you apparently need to implement?
+I apparently need to implement:
+- init: fills the game's tiles based on 'd' provided at run-time by user.
+- draw: prints the game's board in its current state.
+- move: moves a tile if the move is valid. If move is valid, returns true and moves the tile, which therefore
+updates the game's state. If the move is invalid, it just returns false.
+- won: Reads the state of the game and returns false if the game has not yet been won. Returns true if the game
+has been won.

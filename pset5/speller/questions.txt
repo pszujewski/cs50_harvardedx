@@ -1,0 +1,47 @@
+0.  What is pneumonoultramicroscopicsilicovolcanoconiosis?
+
+It is the longest word in the provided dictionary, with a length of 45 characters.
+Hence, why the constant LENGTH is defined at 45.
+
+1.  According to its man page, what does getrusage do?
+
+It returns the resource-usage statistics of a process. It allows you to evaulate the run-time of your program.
+
+2.  Per that same man page, how many members are in a variable of type struct rusage?
+
+A variable of type struct rusage has 16 members.
+
+3.  Why do you think we pass before and after by reference (instead of by value) to
+calculate, even though we’re not changing their contents?
+
+Because before and after are both structs that contain multiple members (variables). Passing each
+member by value would make the prototype declaration very long, verbose and difficult to understand.
+Passing the whole struct by reference (just passing the pointers to each struct) is much more straightforward
+
+4.  Explain as precisely as possible, in a paragraph or more, how main goes about
+reading words from a file. In other words, convince us that you indeed understand
+how that function’s for loop works.
+
+Before starting the for loop, main opens up the selected text file in read mode using fopen.
+fopen returns the pointer to the file stream.
+The for loop functions to iterate over each character in the file stream (going char by char)
+until EOF (end of file) is reached. This is accmplished with the fgetc() function.
+Within the body of the for loop, we first check to make sure the current character is indeed
+an alphabetical character using the isalpha() function. If so, it is added to an array called
+'word' where we store each individual alphanumeric character. The fgetc function allows you to
+iterate through a file stream because it takes in the 'next character' from the file stream.
+So in the for loop, the fgetc function iterates through the 'fp' file stream char by char, returning
+each char until it reaches EOF.
+
+5.  Why do you think we used fgetc to read each word’s characters one at a time
+rather than use fscanf with a format string like "%s" to read whole words at a time?
+Put another way, what problems might arise by relying on fscanf alone?
+You decided to use fgetc and read each word's characters one at a time because you needed to filter
+out non-alphanumeric characters like spaces, digites, carriage returns, and any punctuation. This needed to be done
+on a character-by-character basis, which is what fgetc does.
+
+6.  Why do you think we declared the parameters for check and load as const
+(which means "constant")?
+Declaring a char * as a 'const' (contstant) ascribes a 'read-only' implementation to the memory that the char * points
+to. In other words, you cannot mutate or change the contents within that section of memory. I think that you implemented
+this because you didn't want us to be able to change the value of the argument that waw passed in in any way.

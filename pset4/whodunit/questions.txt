@@ -1,0 +1,71 @@
+1.  What’s stdint.h?
+stdint.h is a header file, which we know thanks to the .h extension. This particular header file is included in
+the "C99 Language Standard Library." stdint.h provides 'exact-width integer types.' So in effect, the library's main
+use is to provide defined data types that are more detailed than the typical 'int.'
+Exact-width integer types are expressed as either 'signed' (intN_t) or unsigned (uintN_t), where N specifies the
+number of bits representing the type.
+For example, int8_t is a 'primitive' data type of C provided by the stdint.h header file. It is an int that is always
+8 bits long (which is equal to one byte), and it is a signed integer.
+
+2.  What’s the point of using uint8_t, uint32_t, int32_t, and uint16_t in a program?
+The types defined in stdint.h guarantee that any integer of that type will have a specified 'width' (meaning
+number of bits), so int8_t will always be 8 bits wide, int16_t will be 16 bits wide, and int32_t will be 32 bits
+wide. This is useful in a situation in which you require that a deminal number be represented in binary with a
+specific width.
+
+3.  How many bytes is a BYTE, a DWORD, a LONG, and a WORD, respectively?
+These are aliases defined by Microsoft for the data types from stdint.h. BYTE has 1 byte (8 bits) because it is an alias
+of the uint8_t data type. The rest follow:
+DWORD = uint32_t = 4 bytes (32 bits)
+LONG = int32_t = 4 bytes (32 bits)
+WORD = uint16_t = 2 bytes (16 bits)
+
+4.  What (in ASCII, decimal, or hexadecimal) must the first two bytes of any BMP file be? Leading bytes used to identify
+file formats (with high probability) are generally called "magic numbers."
+The first two bytes (8 bits) of a BMP file (the 'magic numbers') are 0x42 0x4D if expressed in Hexadecimal notation.
+In Binary this corresponds to 0100 0010 0100 1101. Recall that each Hexadecimal digit maps to exactly 4 bits.
+
+5.  What’s the difference between bfSize and biSize
+bfSize is a property of 'member' on the BITMAPFILEHEADER structure, which contains metadata on the BMP file, such
+as its file size, which is the role of the bfSize property. bfSize expresses the size of the whole file in bytes.
+biSize, on the other hand, is a property on the BITMAPINFOHEADER structure. This structure provides metadata on the dimensions
+and color of the image itself. biSize expresses the size in bytes of the BITMAPINFOHEADER structure.
+
+6.  What does it mean if biHeight is negative?
+The biHeight member is an unsigned LONG integer. It's role in the BITMAPINFOHEADER structure is to convey the height dimensions
+of the bitmap in pixels. From the BMP docs: "If biHeight is negative, the bitmap is a top-down DIB and its origin is the upper-left
+corner." Recall that DIB stands for Device Independent Bitmap.
+
+7.  What field in BITMAPINFOHEADER specifies the BMP’s color depth (i.e., bits per pixel)?
+There is no field in the BITMAPINFOHEADER that specifies the BMP's color depth. Instead, this field
+is found on the BITMAPCOREHEADER structure under the bcBitCount member.
+
+8.  Why might fopen return NULL in lines 24 and 32 of copy.c?
+Checking if the file is not equal to NULL is a 'sanity check.' It could be NULL if you don't have permission to create
+or write to files on the computer, or the computer could be out of space/memory to create a new file. Per the fopen
+documentation (its'man' page), fopen returns NULL if the operation is unable, for whatever reason, to create a new file.
+
+9.  Why is the third argument to fread always 1 in our code?
+The man page for fread refers to this third argument as 'nmemb,' and it is supposed to denote the number of 'elements of
+data' we want the function to 'read in' from the given file at one time. So if this parameter was equal to 10 and size (2nd argument)
+was given as 50, the function would read in 50 bytes from the file 10 times for a total of 500 bytes. So making this argument
+equal to one means that the whole file is 'read' at once.
+It looks like the fread function copies and saves the bits of the file to memory. In memory, thee bits can be mapped to
+properties on a given structure.
+
+10. What value does line 65 of copy.c assign to padding if bi.biWidth is 3?
+The size of the RGBTRIPLE strcture is 24 bits (3 bytes)
+ 4 - (3 * 24) % 4) % 4 = 0
+ It assigns 0 to the int variable padding.
+
+11. What does fseek do?
+According to the man pages, "the fseek() function sets the file position indicator for the stream pointed to by 'stream.'
+The new position, measured in bytes, is obtained by adding 'offset' bytes to the position specified by 'whence'." Recall
+that 'stream' is a pointer to a file, offset is an integer that updates the stream pointer position, and whence is also
+an integer. You would probably use this function to move a file pointer between the bits that make up the different file
+headers specific to the given file type.
+
+12. What is SEEK_CUR?
+In copy.c, the third argument to the fseek function (which the man pages for fseek refer to as 'whence'), is given as
+SEEK_CUR. The man pages for fseek state that if whence is set to SEEK_CUR, "the offset (2nd argument to fseek - see above)
+is relative to the current position indicator."

@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <div>Home</div>
+    <div>
+        <p><strong>Current Cash Balance: </strong>{{ cash_balance }}</p>
+        <table class="table">
+            <thead>
+                <tr>
+                  <th>Company Symbol</th>
+                  <!--<th>Current Share Price</th>-->
+                  <th>Shares bought</th>
+                  <!--<th>Total Value</th>-->
+                </tr>
+            </thead>
+            <tbody>
+                {% for h in holdings %}
+                    <tr>
+                        <td>{{ h.symbol }}</td>
+                        <!--<td>{{ h.current_price }}</td>-->
+                        <td>{{ h.num_shares }}</td>
+                        <!--<td>{{ h.total_value }}</td>-->
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

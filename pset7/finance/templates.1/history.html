@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <div>All Transactions</div>
+    <div>
+        <p><strong>All Purchases</p>
+        <table class="table">
+            <thead>
+                <tr>
+                  <th>Company Symbol</th>
+                  <th>Shares bought</th>
+                  <th>Price per share</th>
+                  <th>Time of transaction</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in purchases %}
+                    <tr>
+                        <td>{{ p.symbol }}</td>
+                        <td>{{ p.shares_bought }}</td>
+                        <td>{{ p.purchase_price }}</td>
+                        <td>{{ p.register_date }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <p><strong>All Sales</strong></p>
+        <table class="table">
+            <thead>
+                <tr>
+                  <th>Company Symbol</th>
+                  <th>Shares Sold</th>
+                  <th>Price per share</th>
+                  <th>Time of transaction</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for s in sales %}
+                    <tr>
+                        <td>{{ s.symbol }}</td>
+                        <td>{{ s.shares_sold }}</td>
+                        <td>{{ s.sale_price }}</td>
+                        <td>{{ s.register_date }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

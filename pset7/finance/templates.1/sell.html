@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+    <div>
+        <h5>Sell Shares</h5>
+        <p>Enter a stock symbol and number of shares to search and purchase stocks</p>
+        <p>To check how much you own of a given stock, navigate to 'home'</p>
+        <p>To check the current price of different stocks, navigate to 'quote'</p>
+        <form action="{{ url_for('sell') }}" method="post">
+            <fieldset>
+                <div class="form-group">
+                    <input class="form-control" name="stock_symbol" placeholder="Enter a stock symbol" type="text"/>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" name="num_shares" placeholder="Enter number of shares to sell" type="number"/>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">Sell</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}
