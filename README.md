@@ -14,51 +14,28 @@ This repo contains all of the files for the problem sets I completed as a part o
 ## Topics covered by problem set
 
 ### Problem sets 1 - 5
-C Programming Language
-clang and compilers overview
-Data types in C
-ASCII
-Arrays & Memory
-Big-O Notation and measuring algorithm run-time
-Promgram memory (i.e the stack vs. the heap)
-Pointers and 'addresses' in memory
-Memory leaks and the use of valgrind
-Algorithms: Merge Sort, Quick Sort, Bubble Sort, and Binary Search in particular
-Data structures: Stacks, Queues, Linked Lists, Hash Tables, Tries, Trees, and Binary Search Tress in particular
+* C Programming Language
+* Clang and compilers overview
+* Data types in C
+* ASCII
+* Arrays & Memory
+* Big-O Notation and measuring algorithm run-time
+* Promgram memory (i.e the stack vs. the heap)
+* Pointers and 'addresses' in memory
+* Memory leaks and the use of valgrind
+* Algorithms: Merge Sort, Quick Sort, Bubble Sort, and Binary Search in particular
+* Data structures: Stacks, Queues, Linked Lists, Hash Tables, Tries, Trees, and Binary Search Tress in particular
 
 ### Problem set 6 and 7
-Python, SQL and HTTP
-The MVC pattern or framework
-Python web servers and the Flask micro-framework
-Python features, such as lists, dicts, and tuples
-Joins and SQL CRUD operations with a focus on sqlite3
+* Python, SQL and HTTP
+* The MVC pattern or framework
+* Python web servers and the Flask micro-framework
+* Python features, such as lists, dicts, and tuples
+* Joins and SQL CRUD operations with a focus on sqlite3
 
 ## Lecture notes
 
-Each lecture consisted of about 2 hours on edx. My notes, organized according to each lecture, follow below.
+Each lecture consisted of about 2 hours on edx. My notes, organized according to each lecture, can be found in each pset directory.
 
-### Lecture 1
-
-**Introduction**
-The basis of Computer science is input and outputs and problem solving. Between the inputs and outputs are the algorithms.
-
-A note on The Binary system
-A single number in binary is a bit. 8 bits makes a byte.
-Transistors are millions of switches that turn on and off that represent lots and lots of zeros and ones.
-
-A note on ASCII
-The world decided that certain decimal numbers (reflected in binary) would express letters -> IE H is 72
-Mapping binary numbers to letters is ASCII
-
-A note on the concept of 'threading'
-Multi-threading literally allows you to do multiple things at the same time. Programs can be multi-threaded. A thread is one thing a computer can do.
-
-
-
-
-
-
-
-
-
+Thanks!
 
