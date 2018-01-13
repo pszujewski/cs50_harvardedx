@@ -1,15 +1,15 @@
-### Lecture 1
+### Lecture 2
 
 **Introduction**
 
 Last week we looked at integer overflow, which is the reality that if you only have a finite amount of memory (or specifically a finite number of bits), you can only count so high.
 We also saw floating point imprecision, which is the reality that with only a finite number of bits allocated for a float (whether 32 or 64), you can only hold so many numbers past a decimal point. When trying to express 1/3 for example in binary, things get tricky and imprecision piles up. Acomupter cannot represent an infinite number of numbers given finite space.
 
-Cryptography
+**Cryptography**
 The input is plaintext and the output is ciphertext. The algorithm typically includes a 'key' by which the plaintext is scrambled.
 You should be able to pass the ciphertext into another program that spits out the plain text using the key.
 
-Typecasting
+**Typecasting**
 A string is a sequence of characters in your RAM (memory). It is stored in an array.
 characters are just an abstraction on top of numbers and number are chars just depends on context.
 Think of ASCII.
@@ -27,7 +27,7 @@ via argv, you have access to all the inputs to a program. It is an array.
 Array = list of similar values back to back to back. It is a chunk of contiguous memory, each of whos element are back to back to back.
 Each char in a string takes up a byte. A string is just an array of chars (an actual data type).
 
-The main function
+**The main function**
 It's return value is defined as an int. Why? Main returns 0 if all went well, but somewhat intuitively because we always think of zero as being equivalent to false. For main, 0 means all is well. Whereas any other int it might return (any non-zero value) can correspond to an ERROR CODE.
 In addition to void as its argument, main can also take
 
@@ -42,7 +42,7 @@ Where the two arguments correspond to 'argument count' and an array of strings (
 Real numbers are floats. They are numbers with decimal values and are represented in C as floats.
 Doubles are floats but they offer a more 'PRECISE' way to represent real numbers (floating point numbers).
 
-Variable Scope
+**Variable Scope**
 Scope is a characteristic of a variable that defines from which functions a variable can be accessed. There are two primary scopes in C: local scope and global scope. Locally scoped variables can only be accessed within the functions in which they're created. Global variables can be accessed any where. All functions can access it.
 
 When a function receives a variable as input, it receives copies of those variables. Not the variables themselves.
