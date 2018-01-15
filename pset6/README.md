@@ -22,6 +22,7 @@ print("{:.1f}".format(c))
 ```
 
 **The sys global module**
+
 Similar to the Process object in NodeJS, sys contains data on the currently running process.
 The following code gets reads the number of command line arguments provided and prints one.
 

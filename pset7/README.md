@@ -3,6 +3,7 @@
 More Python Features, The Flask Framework, MVC Pattern, and Introduction to SQL
 
 **The MVC pattern or framework**
+
 Controllers: The business logic goes here, the function calls that do things.
 View: templates that actually render information
 Model: Databases, how you save, search, delete, etc. The Model also describes the schema for the database, which refers to the design of the tables and rows, as well as how data is stored in the database.
@@ -36,6 +37,7 @@ Flask uses a python generated templating language called Jinja to create the htm
 A "backend" is a web server that responds to HTTP requests over TCP ports.
 
 **Writing to a CSV file in python**
+
 The example is done in the context of a Flask route that takes in data on "request" object
 
 ```python
@@ -53,7 +55,7 @@ Primary key => the field whose values uniquely identify records in a table. The 
 Index => Allows you to have the database give you better performance than linear search. If you know for example that you are going to be searching by zip code or email, you can tell the database in advance that it should 'index' records by that field. In effect, the db will index, or (sort of) sort, records in advance. Only use this if you are going to search by that field, however.
 UNIQUE => Allows you to identify a field as unique. So if you say that email is unique, then SQL won't allow you to create another record with the same email
 
-Basic SQL CRUD operations
+**Basic SQL CRUD operations**
 
 ```
 INSERT INTO registrants(name, dorm)
