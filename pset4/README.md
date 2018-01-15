@@ -146,6 +146,8 @@ This is a base-16 system ranging from 0 - 9, a, b, c, d, e, f
 It always computer scientists to express something close to binary but the advantage of hexadecimal is that it is much more human understandable.
 16 is a power of 2, and so each hexadecimal digit corresponds to a unique ordering arrangement of 4 bits.
 
+![hex table](https://github.com/pszujewski/cs50_harvardedx/blob/master/pset4/images/hexadecimal_table.png "hex table")
+
 So binary string 1111 corresponds to hexadecimal digit 'F'. To distinguish hexadecimal numbers from decimal numbers, we usually prefix hexadecimal number with '0x.' It's just a clue to humans that we are dealing with a hexadecimal number. Although often this prefix is unnecessary because the use of the letters makes it clear that we are dealing with hexadecimal numbers.
 
 Recall that binary has place values: there is a 1s place, 2s place, 4s place, 8s place... In decimal the places are 1, 10, 100, 1000. In hexadecimal they are not powers of 2 or 10, but powers of 16.
